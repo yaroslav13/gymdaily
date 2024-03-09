@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "514531693331",
+    "project_id": "gym-daily",
+    "storage_bucket": "gym-daily.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:514531693331:android:54c8b2c6d7dc08a15640e6",
+        "android_client_info": {
+          "package_name": "com.daily.gym.gym_daily"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBLVtCwkO-48IFsCOf5gulyuT5vXqTZjfQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

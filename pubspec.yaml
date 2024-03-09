@@ -11,13 +11,29 @@ dependencies:
   flutter:
     sdk: flutter
 
-  cupertino_icons: ^1.0.2
+  # state management / di
+  hooks_riverpod: 2.4.10
+  flutter_hooks: 0.20.5
+  riverpod_annotation: 2.3.4
+
+  # ui
+  cupertino_icons: 1.0.2
+
+  # network
+  firebase_core: 2.27.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
-  flutter_lints: ^2.0.0
+  # code gen
+  riverpod_generator: 2.3.11
+  build_runner: 2.4.8
+
+  # lints
+  custom_lint: 0.6.2
+  riverpod_lint: 2.3.9
+  very_good_analysis: 5.1.0
 
 flutter:
   uses-material-design: true

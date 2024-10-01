@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:gym_daily/src/resources/translations.g.dart';
+import 'package:gym_daily/src/resources/assets.gen.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:lottie/lottie.dart';
 
 /// The [SplashScreen] is initial screen of app.
 final class SplashScreen extends HookConsumerWidget {
@@ -11,7 +12,7 @@ final class SplashScreen extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       body: Center(
-        child: Text(context.t.gymDaily),
+        child: Lottie.asset(Assets.lotties.workout),
       ),
     );
   }

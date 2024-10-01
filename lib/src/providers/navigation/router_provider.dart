@@ -1,5 +1,5 @@
 import 'package:go_router/go_router.dart';
-import 'package:gym_daily/src/navigation/routes/splash_route.dart';
+import 'package:gym_daily/src/navigation/routes/splash/splash_route.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'router_provider.g.dart';

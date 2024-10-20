@@ -1,12 +1,6 @@
-import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
-import 'package:gym_daily/src/features/splash/splash_screen.dart';
+part of '../routes.dart';
 
-part 'splash_route.g.dart';
-
-@TypedGoRoute<SplashRoute>(
-  path: '/',
-)
+@TypedGoRoute<SplashRoute>(path: '/')
 
 /// The [SplashRoute] is route for [SplashScreen]
 final class SplashRoute extends GoRouteData {

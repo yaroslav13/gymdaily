@@ -1,3 +1,8 @@
 {
-  "gymDaily": "GYM DAILY"
+  "gymDaily": "GYM DAILY",
+  "email": "Email",
+  "password": "Password",
+  "enterValidEmail": "Please enter a valid email address",
+  "enterEmail": "Please enter your email address.",
+  "logIn": "Log in"
 }

@@ -5,4 +5,9 @@ extension type const GymDailyEdgeInsets(EdgeInsets _) implements EdgeInsets {
       : this(
           const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
         );
+
+  const GymDailyEdgeInsets.horizontalInsets()
+      : this(
+          const EdgeInsets.symmetric(horizontal: 24),
+        );
 }

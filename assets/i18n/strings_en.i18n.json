@@ -4,5 +4,10 @@
   "password": "Password",
   "enterValidEmail": "Please enter a valid email address",
   "enterEmail": "Please enter your email address.",
-  "logIn": "Log in"
+  "logIn": "Log in",
+  "unknownError": "Ooops... Bad things happens",
+  "invalidEmail": "It doesn't look like a valid email",
+  "invalidEmailOrPassword": "Invalid email or password",
+  "userNotFound": "Don't rush, register first",
+  "userDisabled": "It's not your day, user is disabled"
 }

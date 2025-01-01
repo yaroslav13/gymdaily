@@ -1,6 +1,8 @@
 import 'package:formz/formz.dart';
+import 'package:gym_daily/src/entities/user_credentials/user_credentials.dart';
 import 'package:gym_daily/src/features/login/inputs/email_input.dart';
 import 'package:gym_daily/src/features/login/inputs/password_input.dart';
+import 'package:gym_daily/src/providers/auth/authentication_datasource_provider.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'login_form_state_provider.g.dart';
@@ -27,11 +29,14 @@ class LoginFormState extends _$LoginFormState {
   }
 
   Future<void> onLogIn() async {
-    try {
-      /// TODO: implementation of log in method
-    } on Exception {
-      // TODO: Error handling
-    }
+    final authenticationDatasource = ref.read(authenticationDatasourceProvider);
+
+    final email = state.email.value;
+    final password = state.password.value;
+
+    await authenticationDatasource.logIn(
+      UserCredentials(email: email, password: password),
+    );
   }
 }
 

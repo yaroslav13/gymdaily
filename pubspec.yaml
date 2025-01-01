@@ -28,6 +28,8 @@ dependencies:
   lottie: 3.3.0
   formz: 0.8.0
   form_validator: 2.1.1
+  flutter_svg: 2.0.16
+  toastification: 2.3.0
 
   # network
   firebase_core: 2.27.1
@@ -38,6 +40,13 @@ dependencies:
 
   # assets
   flutter_gen: 5.8.0
+
+  # entities generation
+  freezed: 2.5.7
+  freezed_annotation: 2.4.4
+
+  # logger
+  logger: 2.5.0
 
 dev_dependencies:
   flutter_test:
@@ -60,6 +69,7 @@ flutter:
 
   assets:
     - assets/lotties/
+    - assets/images/
 
 flutter_gen:
   output: lib/src/resources

@@ -4,6 +4,7 @@ import 'package:gym_daily/firebase_options.dart';
 import 'package:gym_daily/src/gym_daily_app.dart';
 import 'package:gym_daily/src/resources/translations.g.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:toastification/toastification.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -15,7 +16,9 @@ Future<void> main() async {
   runApp(
     ProviderScope(
       child: TranslationProvider(
-        child: const GymDailyApp(),
+        child: const ToastificationWrapper(
+          child: GymDailyApp(),
+        ),
       ),
     ),
   );

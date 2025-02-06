@@ -30,6 +30,7 @@ dependencies:
   form_validator: 2.1.1
   flutter_svg: 2.0.16
   toastification: 2.3.0
+  syncfusion_flutter_datepicker: 28.2.4
 
   # network
   firebase_core: 2.27.1

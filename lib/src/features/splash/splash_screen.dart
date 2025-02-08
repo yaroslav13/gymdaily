@@ -21,12 +21,11 @@ final class SplashScreen extends HookConsumerWidget {
       return;
     }
 
-    switch (authenticationStatus) {
-      case AuthenticationStatus.authenticated:
-      // TODO: Navigate to [HomeScreen].
-      case AuthenticationStatus.unauthenticated:
-        const LoginRoute().go(context);
+    if (authenticationStatus == AuthenticationStatus.unauthenticated) {
+      /// TODO: ananymous sign in
     }
+
+    const HomeRoute().go(context);
   }
 
   @override

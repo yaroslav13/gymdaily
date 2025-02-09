@@ -10,6 +10,8 @@ extension ObjectX<T extends Object?> on T? {
     }
 
     final value = getter(this as T);
+    print(valus);
+
     if (value == null) {
       throw PropertyNotFoundException<V>(object: this);
     }

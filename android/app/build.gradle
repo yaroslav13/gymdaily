@@ -6,59 +6,77 @@ plugins {
     id "dev.flutter.flutter-gradle-plugin"
 }
 
-def localProperties = new Properties()
-def localPropertiesFile = rootProject.file('local.properties')
-if (localPropertiesFile.exists()) {
-    localPropertiesFile.withReader('UTF-8') { reader ->
-        localProperties.load(reader)
+def getKeystoreProperty(propertyName) {
+    def keystoreFile = rootProject.file("key.properties")
+
+    if (keystoreFile.exists()) {
+        def properties = new Properties()
+        properties.load(new FileInputStream(keystoreFile))
+
+        def value = properties.getProperty(propertyName) ?: System.getenv(propertyName)
+        if (value != null) {
+            return value
+        }
+    } else {
+        def envValue = System.getenv(propertyName)
+        if (envValue != null) {
+            return envValue
+        }
     }
-}
 
-def flutterVersionCode = localProperties.getProperty('flutter.versionCode')
-if (flutterVersionCode == null) {
-    flutterVersionCode = '1'
-}
-
-def flutterVersionName = localProperties.getProperty('flutter.versionName')
-if (flutterVersionName == null) {
-    flutterVersionName = '1.0'
+    throw new GradleException("ERROR: Keystore property '$propertyName' not found.")
 }
 
 android {
-    namespace "com.daily.gym.gym_daily"
-    compileSdkVersion 34
-    ndkVersion flutter.ndkVersion
+    namespace = "com.daily.gym.gym_daily"
+    compileSdk = 35
+    ndkVersion = "27.0.12077973" //firebase ndk requirements
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
     }
 
     kotlinOptions {
-        jvmTarget = '1.8'
-    }
-
-    sourceSets {
-        main.java.srcDirs += 'src/main/kotlin'
+        jvmTarget = JavaVersion.VERSION_1_8
     }
 
     defaultConfig {
-        applicationId "com.daily.gym.gym_daily"
-        minSdkVersion flutter.minSdkVersion
-        targetSdkVersion flutter.targetSdkVersion
-        versionCode flutterVersionCode.toInteger()
-        versionName flutterVersionName
+        applicationId = "com.daily.gym.gym_daily"
+        minSdk = 23 //firebase min requirements
+        targetSdk = 35
+        versionCode = flutter.versionCode
+        versionName = flutter.versionName
+    }
+
+    signingConfigs {
+        release {
+            keyAlias = getKeystoreProperty("keyAlias")
+            keyPassword = getKeystoreProperty("keyPassword")
+            storeFile = file(getKeystoreProperty("storeFile"))
+            storePassword = getKeystoreProperty("storePassword")
+        }
+        debug {
+            keyAlias = "gym-pilot-debug"
+            keyPassword = "gym-pilot-debug"
+            storeFile = file("../keystore/debug.keystore")
+            storePassword = "gym-pilot-debug"
+        }
     }
 
     buildTypes {
         release {
-            signingConfig signingConfigs.debug
+            signingConfig = signingConfigs.release
+            minifyEnabled = true
+            shrinkResources = true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            signingConfig = signingConfigs.debug
         }
     }
 }
 
 flutter {
-    source '../..'
+    source = "../.."
 }
-
-dependencies {}
